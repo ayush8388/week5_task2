@@ -10,7 +10,7 @@ function MovieDetails() {
     const {id} = router.query
   
     const {data , error} = useSWR(
-        id? `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&i=${id}` : null, 
+        id? `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&i=${id}` : null, 
         fetcher
     )
     if (!data) return <p className="text-blue-500">Loading movie details...</p>

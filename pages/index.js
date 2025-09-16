@@ -10,7 +10,7 @@ function HomePage() {
   const [query, setQuery] = useState("")
 
   const { data, error, isLoading } = useSWR(
-    movieName ? `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&s=${movieName}` : null,
+    movieName ? `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&s=${movieName}` : null,
     fetcher
   )
 
