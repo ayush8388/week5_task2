@@ -9,11 +9,12 @@ function MovieDetails() {
     const router = useRouter()
     const {id} = router.query
   
-    const {data} = useSWR(
+    const {data , error} = useSWR(
         id? `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&i=${id}` : null, 
         fetcher
     )
     if (!data) return <p className="text-blue-500">Loading movie details...</p>
+    if (error) return <p className="text-red-500">Error: {error.message}</p>
 
   return (
    <div className="min-h-screen flex flex-col items-center py-10 px-6">
