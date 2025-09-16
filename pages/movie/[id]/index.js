@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import fetcher from '../../../utils/fetcher'
 
 
-function index() {
+function MovieDetails() {
     const router = useRouter()
     const {id} = router.query
   
@@ -46,4 +46,4 @@ function index() {
   )
 }
 
-export default index
+export default MovieDetails
