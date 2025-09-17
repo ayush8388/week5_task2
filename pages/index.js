@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import useSWR from 'swr'
 import Link from 'next/link'
 import fetcher from '../utils/fetcher'
+import Spinner from '@/components/spinner'
 
 
 function HomePage() {
@@ -43,7 +44,7 @@ function HomePage() {
         </button>
       </form>
 
-      {isLoading && <p className="text-blue-500">Loading...</p>}
+      {isLoading && <Spinner />}
       {error && <p className="text-red-500">Error: {error.message}</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.Search?.map((movie) => (

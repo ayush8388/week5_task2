@@ -3,6 +3,7 @@ import useSWR from 'swr'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import fetcher from '../../../utils/fetcher'
+import Spinner from '@/components/spinner'
 
 
 function MovieDetails() {
@@ -13,7 +14,7 @@ function MovieDetails() {
         id? `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&i=${id}` : null, 
         fetcher
     )
-    if (!data) return <p className="text-blue-500">Loading movie details...</p>
+    if (!data) return <p className="text-blue-500"><Spinner /></p>
     if (error) return <p className="text-red-500">Error: {error.message}</p>
 
   return (
