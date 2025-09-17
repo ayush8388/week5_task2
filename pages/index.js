@@ -46,6 +46,10 @@ function HomePage() {
 
       {isLoading && <Spinner />}
       {error && <p className="text-red-500">Error: {error.message}</p>}
+      {data?.Response === "False" && (
+        <p className="text-gray-300 text-lg mt-6">No results found </p>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.Search?.map((movie) => (
           <Link
@@ -65,7 +69,8 @@ function HomePage() {
               <p className="text-gray-500">({movie.Year})</p>
             </div>
           </Link>
-        ))}  
+        ))} 
+         
       </div>
 
     </div>
